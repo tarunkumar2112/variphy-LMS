@@ -45,7 +45,7 @@ Live deployment: [Variphy TalentLMS](http://variphy-talentlms.netlify.app/)
 - **Function:** Retrieves a single course by its ID.
 - **Test URL (Live):** 
   ```
-  https://variphy-talentlms.netlify.app/.netlify/functions/getCourseByID?id=2
+  https://variphy-talentlms.netlify.app/.netlify/functions/getSingleCourse?id=129
   ```
 
 ### 3. `getUsers`
@@ -69,7 +69,7 @@ Live deployment: [Variphy TalentLMS](http://variphy-talentlms.netlify.app/)
 - **Function:** Retrieves a user by their email.
 - **Test URL (Live):** 
   ```
-  https://variphy-talentlms.netlify.app/.netlify/functions/getUserByEmail?email=tarunkumarz211286@gmail.com
+  [https://variphy-talentlms.netlify.app/.netlify/functions/getUserByEmail?email=tarunkumarz211286@gmail.com](https://variphy-talentlms.netlify.app/.netlify/functions/getUserByEmail?email=tarunkumarz211286@gmail.com)
   ```
 
 ### 6. `getSiteInfo`
@@ -109,7 +109,7 @@ Live deployment: [Variphy TalentLMS](http://variphy-talentlms.netlify.app/)
 - **Function:** Retrieves a category by its ID.
 - **Test URL (Live):** 
   ```
-  https://variphy-talentlms.netlify.app/.netlify/functions/getCategoryByID?id=4
+  [https://variphy-talentlms.netlify.app/.netlify/functions/getCategoryByID?id=4](https://variphy-talentlms.netlify.app/.netlify/functions/getCatByID?id=4)
   ```
 
 ### 11. `getBranches`
@@ -117,7 +117,7 @@ Live deployment: [Variphy TalentLMS](http://variphy-talentlms.netlify.app/)
 - **Function:** Retrieves all branches.
 - **Test URL (Live):** 
   ```
-  https://variphy-talentlms.netlify.app/.netlify/functions/getBranches
+  https://variphy-talentlms.netlify.app/.netlify/functions/getBranch
   ```
 
 ### 12. `getBranchByID`
