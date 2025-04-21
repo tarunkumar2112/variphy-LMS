@@ -1,22 +1,12 @@
 
-# Variphy LMS - API Integration
+# Variphy LMS - Netlify Functions
 
-This project integrates with the Variphy TalentLMS API, providing various endpoints to interact with the LMS platform. The app is deployed on Netlify, and you can access the live version through the link below. The purpose of this README is to guide you through local setup, endpoint testing, and deployment to production.
+This repository contains the backend API functions for interacting with the Variphy TalentLMS.
 
-## Live Version
-- URL: [variphy-talentlms.netlify.app](http://variphy-talentlms.netlify.app/)
+## Deployed App
+Live deployment: [Variphy TalentLMS](http://variphy-talentlms.netlify.app/)
 
-## GitHub Repository
-- URL: [Variphy LMS GitHub](https://github.com/tarunkumar2112/variphy-LMS)
-
-## Project Setup
-
-### Requirements
-- Node.js (preferably the latest LTS version)
-- npm or yarn
-- Netlify CLI for local deployment and testing
-
-### Installation
+## Local Setup
 
 1. Clone the repository:
    ```bash
@@ -24,140 +14,131 @@ This project integrates with the Variphy TalentLMS API, providing various endpoi
    cd variphy-LMS
    ```
 
-2. Install the dependencies:
+2. Install the required dependencies:
    ```bash
    npm install
    ```
 
-3. Create a `.env` file in the root directory with the following environment variables:
-   - `BASE_URL`: The base URL for API requests (provided by the TalentLMS API).
-   - `API_KEY`: Your API key for authorization (used in Basic Auth for API requests).
-   
-4. Run the app locally:
+3. Create a `.env` file in the root directory and add your environment variables.
+   ```bash
+   BASE_URL=<your_base_url>
+   API_KEY=<your_api_key>
+   ```
+
+4. Run the Netlify dev server to test locally:
    ```bash
    netlify dev
    ```
 
-   This will start the local server and you can visit it at [http://localhost:8888](http://localhost:8888) to test the endpoints.
+## Endpoints
 
-## Available API Endpoints
+### 1. `getCourses`
 
-Below is a list of all the available API endpoints along with the respective files that handle them.
+- **Function:** Retrieves all courses.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getCourses
+  ```
 
-### 1. **Get All Courses**
-- **Endpoint**: `/getCourses`
-- **File**: `getCourses.js`
-- **Description**: Fetches all courses from the TalentLMS platform.
-- **Usage**:
-   - Make a GET request to `/getCourses` to fetch the course list.
-   - Example: Visit [http://localhost:8888/getCourses](http://localhost:8888/getCourses) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getCourses](http://variphy-talentlms.netlify.app/getCourses)
+### 2. `getCourseByID`
 
-### 2. **Get a Single Course by ID**
-- **Endpoint**: `/getCourseById`
-- **File**: `getCourseById.js`
-- **Description**: Fetches a single course by its ID.
-- **Usage**:
-   - Make a GET request to `/getCourseById/{course_id}` to fetch details for a specific course.
-   - Example: Visit [http://localhost:8888/getCourseById/{course_id}](http://localhost:8888/getCourseById/{course_id}) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getCourseById/{course_id}](http://variphy-talentlms.netlify.app/getCourseById/{course_id})
+- **Function:** Retrieves a single course by its ID.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getCourseByID?id=2
+  ```
 
-### 3. **Get Users**
-- **Endpoint**: `/getUsers`
-- **File**: `getUsers.js`
-- **Description**: Fetches a list of all users.
-- **Usage**:
-   - Make a GET request to `/getUsers` to fetch all users.
-   - Example: Visit [http://localhost:8888/getUsers](http://localhost:8888/getUsers) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getUsers](http://variphy-talentlms.netlify.app/getUsers)
+### 3. `getUsers`
 
-### 4. **Get User by ID**
-- **Endpoint**: `/getUserById`
-- **File**: `getUserById.js`
-- **Description**: Fetches a user by their ID.
-- **Usage**:
-   - Make a GET request to `/getUserById/{user_id}`.
-   - Example: Visit [http://localhost:8888/getUserById/{user_id}](http://localhost:8888/getUserById/{user_id}) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getUserById/{user_id}](http://variphy-talentlms.netlify.app/getUserById/{user_id})
+- **Function:** Retrieves all users.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getUsers
+  ```
 
-### 5. **Get User by Email**
-- **Endpoint**: `/getUserByEmail`
-- **File**: `getUserByEmail.js`
-- **Description**: Fetches a user by their email address.
-- **Usage**:
-   - Make a GET request to `/getUserByEmail/{user_email}`.
-   - Example: Visit [http://localhost:8888/getUserByEmail/{user_email}](http://localhost:8888/getUserByEmail/{user_email}) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getUserByEmail/{user_email}](http://variphy-talentlms.netlify.app/getUserByEmail/{user_email})
+### 4. `getUserByID`
 
-### 6. **Get Site Info**
-- **Endpoint**: `/getSiteInfo`
-- **File**: `siteInfo.js`
-- **Description**: Fetches site information for the LMS platform.
-- **Usage**:
-   - Make a GET request to `/getSiteInfo`.
-   - Example: Visit [http://localhost:8888/getSiteInfo](http://localhost:8888/getSiteInfo) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getSiteInfo](http://variphy-talentlms.netlify.app/getSiteInfo)
+- **Function:** Retrieves a user by their ID.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getUserByID?id=15
+  ```
 
-### 7. **Get Groups**
-- **Endpoint**: `/getGroups`
-- **File**: `getGroups.js`
-- **Description**: Fetches a list of all user groups.
-- **Usage**:
-   - Make a GET request to `/getGroups`.
-   - Example: Visit [http://localhost:8888/getGroups](http://localhost:8888/getGroups) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getGroups](http://variphy-talentlms.netlify.app/getGroups)
+### 5. `getUserByEmail`
 
-### 8. **Get Group by ID**
-- **Endpoint**: `/getGroupById`
-- **File**: `getGroupById.js`
-- **Description**: Fetches a specific group by its ID.
-- **Usage**:
-   - Make a GET request to `/getGroupById/{group_id}`.
-   - Example: Visit [http://localhost:8888/getGroupById/{group_id}](http://localhost:8888/getGroupById/{group_id}) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getGroupById/{group_id}](http://variphy-talentlms.netlify.app/getGroupById/{group_id})
+- **Function:** Retrieves a user by their email.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getUserByEmail?email=tarunkumarz211286@gmail.com
+  ```
 
-### 9. **Get Categories**
-- **Endpoint**: `/getCategories`
-- **File**: `getCategories.js`
-- **Description**: Fetches a list of categories in the LMS platform.
-- **Usage**:
-   - Make a GET request to `/getCategories`.
-   - Example: Visit [http://localhost:8888/getCategories](http://localhost:8888/getCategories) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getCategories](http://variphy-talentlms.netlify.app/getCategories)
+### 6. `getSiteInfo`
 
-### 10. **Get Category by ID**
-- **Endpoint**: `/getCategoryById`
-- **File**: `getCategoryById.js`
-- **Description**: Fetches a specific category by its ID.
-- **Usage**:
-   - Make a GET request to `/getCategoryById/{category_id}`.
-   - Example: Visit [http://localhost:8888/getCategoryById/{category_id}](http://localhost:8888/getCategoryById/{category_id}) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getCategoryById/{category_id}](http://variphy-talentlms.netlify.app/getCategoryById/{category_id})
+- **Function:** Retrieves site information.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getSiteInfo
+  ```
 
-### 11. **Get Branches**
-- **Endpoint**: `/getBranches`
-- **File**: `getBranches.js`
-- **Description**: Fetches a list of all branches in the LMS platform.
-- **Usage**:
-   - Make a GET request to `/getBranches`.
-   - Example: Visit [http://localhost:8888/getBranches](http://localhost:8888/getBranches) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getBranches](http://variphy-talentlms.netlify.app/getBranches)
+### 7. `getGroups`
 
-### 12. **Get Branch by ID**
-- **Endpoint**: `/getBranchById`
-- **File**: `getBranchById.js`
-- **Description**: Fetches a specific branch by its ID.
-- **Usage**:
-   - Make a GET request to `/getBranchById/{branch_id}`.
-   - Example: Visit [http://localhost:8888/getBranchById/{branch_id}](http://localhost:8888/getBranchById/{branch_id}) for local testing or use the live domain: [http://variphy-talentlms.netlify.app/getBranchById/{branch_id}](http://variphy-talentlms.netlify.app/getBranchById/{branch_id})
+- **Function:** Retrieves all groups.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getGroups
+  ```
 
-## Deployment to Netlify
+### 8. `getGroupByID`
 
-1. **Link your repository to Netlify:**
-   - Go to [Netlify](https://www.netlify.com/), sign in or sign up, and create a new site from GitHub.
-   - Select the repository for this project.
+- **Function:** Retrieves a group by its ID.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getGroupByID?id=1
+  ```
 
-2. **Configure Build Settings:**
-   - Build Command: `npm run build`
-   - Publish Directory: `dist/`
+### 9. `getCategories`
 
-3. **Deploy your site.**
+- **Function:** Retrieves all categories.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getCategories
+  ```
 
-Once deployed, Netlify will give you a live URL where you can access your project, just like the one provided above.
+### 10. `getCategoryByID`
 
-## Notes
-- Be sure to keep your environment variables secure, especially the `API_KEY`.
-- If any API endpoints change or if new ones are added, you will need to update the code accordingly.
+- **Function:** Retrieves a category by its ID.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getCategoryByID?id=4
+  ```
 
----
+### 11. `getBranches`
 
-Happy coding! 🚀
+- **Function:** Retrieves all branches.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getBranches
+  ```
+
+### 12. `getBranchByID`
+
+- **Function:** Retrieves a branch by its ID.
+- **Test URL (Live):** 
+  ```
+  https://variphy-talentlms.netlify.app/.netlify/functions/getBranchByID?id=2
+  ```
+
+## Deployment Instructions
+
+To deploy to Netlify:
+
+1. Push your changes to your GitHub repository.
+2. Link your GitHub repository with your Netlify account.
+3. Netlify will automatically detect the build settings (functions directory).
+4. The deployment will happen automatically.
+
+## Additional Notes
+
+- Ensure you have the correct environment variables set up for `BASE_URL` and `API_KEY` in the `.env` file.
+- The functions are all deployed as serverless functions and can be accessed via the URLs as described above.
+
